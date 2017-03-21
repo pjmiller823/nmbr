@@ -1,17 +1,58 @@
-#Pick a random number between 1 and 100
-#  - rand (1..100) with a variable
+our_number = rand (1..100)
+count = 0
 
-# Prompt you for a guess
-#  - Ask to guess a number between 1 and 100
 
-# If your guess is less than the program's number, it should tell you that you were low and let you guess again.
-#   - if statement... separate from the higher than.
+loop do
+  puts "Please guess a number"
+  their_guess = gets.chomp.to_i
+  count = count + 1
 
-# If the guess is greater than the program's number, it should tell you that you were high and let you guess again.
-#   -if statement again.
+  if their_guess < our_number
+    puts "You guessed too low. Try again"
 
-# If your guess is correct, the program should tell you that you win and then quit.
-#   - if statement with an exit.
+  elsif their_guess > our_number
+    puts "You guessed too high. Try again"
 
-# After 5 incorrect guesses, the program should tell you that you lose.
-#   - not really sure how to do this. add a count +1 for every if statement and if it equals 5 quit?
+  else
+    puts "Congratulations! You win! You're so smart (or lucky)"
+    break
+  end
+  puts "your count is #{count}"
+  if count == 5
+    puts "You guessed too many times. Sorry not sorry.¯\_(ツ)_/¯ "
+    break
+  end
+end
+
+
+
+
+#multiple if statements restart the count. Switch to elsif (let it snow) with else
+# if their_guess < our_number
+#   puts "You guessed too low. Try again"
+#   their_guess =gets.chomp.to_i
+# end
+#
+# if their_guess > our_number
+#   puts "You guessed too high. Try again"
+#   their_guess = gets.chomp.to_i
+# end
+#
+# if their_guess == our_number
+#   puts "Congratulations! You win! You're so smart (or lucky)"
+#   break
+# end
+# puts "your count is #{count}"
+# if count == 5
+#   puts "You guessed too many times. Sorry not sorry.¯\_(ツ)_/¯ "
+#   break
+# end
+
+
+# def guessed_too_low
+#   puts "you"
+# end
+#
+# if guess < our_number
+#   guessed_too_low
+# end
