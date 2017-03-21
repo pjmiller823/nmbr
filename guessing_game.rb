@@ -3,14 +3,19 @@ class Game
   def initialize
     @count = 0
     @our_number = rand (1..100)
+    @numbers = []
   end
 
-  def guessed_too_low
+  def guessed_too_low(their_guess)
     puts "you You guessed too low. Try again"
+    double(their_guess)
+    @numbers << their_guess
   end
 
-  def guessed_too_high
+  def guessed_too_high(their_guess)
     puts "you You guessed too high. Try again"
+    double(their_guess)
+    @numbers << their_guess
   end
 
   def play
@@ -20,10 +25,10 @@ class Game
       @count = @count + 1
 
       if their_guess < @our_number
-        guessed_too_low
+        guessed_too_low(their_guess)
 
       elsif their_guess > @our_number
-        guessed_too_high
+        guessed_too_high(their_guess)
 
       else
         puts "Congratulations! You win! You're so smart (or lucky)"
@@ -33,6 +38,12 @@ class Game
         puts "You guessed too many times. Sorry not sorry.¯\\_(ツ)_/¯ "
         break
       end
+    end
+  end
+
+  def double(their_guess)
+    if @numbers.include?(their_guess)
+      puts "Seriously? That's not helping."
     end
   end
 end
