@@ -2,57 +2,29 @@ our_number = rand (1..100)
 count = 0
 
 
+def guessed_too_low
+  puts "you You guessed too low. Try again"
+end
+
+
+
 loop do
-  puts "Please guess a number"
+  puts "Please guess a number between 1 and 100. Don't take too long"
   their_guess = gets.chomp.to_i
   count = count + 1
 
   if their_guess < our_number
-    puts "You guessed too low. Try again"
+    guessed_too_low
 
   elsif their_guess > our_number
-    puts "You guessed too high. Try again"
+
 
   else
     puts "Congratulations! You win! You're so smart (or lucky)"
     break
   end
-  puts "your count is #{count}"
   if count == 5
     puts "You guessed too many times. Sorry not sorry.¯\_(ツ)_/¯ "
     break
   end
 end
-
-
-
-
-#multiple if statements restart the count. Switch to elsif (let it snow) with else
-# if their_guess < our_number
-#   puts "You guessed too low. Try again"
-#   their_guess =gets.chomp.to_i
-# end
-#
-# if their_guess > our_number
-#   puts "You guessed too high. Try again"
-#   their_guess = gets.chomp.to_i
-# end
-#
-# if their_guess == our_number
-#   puts "Congratulations! You win! You're so smart (or lucky)"
-#   break
-# end
-# puts "your count is #{count}"
-# if count == 5
-#   puts "You guessed too many times. Sorry not sorry.¯\_(ツ)_/¯ "
-#   break
-# end
-
-
-# def guessed_too_low
-#   puts "you"
-# end
-#
-# if guess < our_number
-#   guessed_too_low
-# end
