@@ -2,7 +2,7 @@
 class Game
   def initialize
     @count = 0
-    @our_number = rand (1..100)
+    @our_number = rand(1..100)
     @numbers = []
   end
 
@@ -10,11 +10,13 @@ class Game
     puts "you You guessed too low. Try again"
     double(their_guess)
     @numbers << their_guess
+    # not_helping(their_guess) # added to call the not_helping_low method. Not working
   end
 
   def guessed_too_high(their_guess)
     puts "you You guessed too high. Try again"
     double(their_guess)
+    # not_helping(their_guess)
     @numbers << their_guess
   end
 
@@ -46,5 +48,14 @@ class Game
       puts "Seriously? That's not helping."
     end
   end
+
+  # def not_helping(their_guess)
+  #   if their_guess < @numbers.last && @numbers.last < @our_number
+  #     puts "You're not helping yourself"
+  #   elsif their_guess > @numbers.last && @numbers.last > @our_number
+  #     puts "You're not helping yourself"
+  #   end
+  # end
+
 end
 Game.new.play
